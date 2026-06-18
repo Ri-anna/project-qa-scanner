@@ -1,0 +1,57 @@
+{
+  "targetDir": "./",
+  "outputFormat": ["html", "json", "markdown"],
+  "outputDir": "./qa-report",
+  "stack": "",
+  "navigationTimeoutMs": 30000,
+  "services": {
+    "api": "http://localhost:3000",
+    "ui": "http://localhost:5173"
+  },
+  "security": {
+    "skipCveCheck": false,
+    "secretsPatterns": [],
+    "protectedEndpoints": ["/api/admin", "/api/users"]
+  },
+  "api": {
+    "openApiPath": "./openapi.yaml",
+    "routesPath": "./src/routes",
+    "latencyThresholdMs": 2000,
+    "auth": {
+      "type": "bearer",
+      "token": "${AUTH_TOKEN}"
+    },
+    "endpoints": [
+      {
+        "url": "/api/items",
+        "method": "GET",
+        "expectedStatus": 200,
+        "latencyThresholdMs": 500,
+        "responseSchema": {
+          "type": "object",
+          "required": ["data"],
+          "properties": {
+            "data": { "type": "array" }
+          }
+        }
+      }
+    ]
+  },
+  "ui": {
+    "urls": ["/", "/about"],
+    "expectedTitle": "My App",
+    "breakpoints": [
+      { "width": 1920, "height": 1080, "label": "Desktop" },
+      { "width": 768,  "height": 1024, "label": "Tablet"  },
+      { "width": 375,  "height": 812,  "label": "Mobile"  }
+    ],
+    "forms": [
+      {
+        "url": "/contact",
+        "fields": { "input[name=name]": "Test User", "input[name=email]": "test@test.com" },
+        "submitSelector": "button[type=submit]",
+        "successSelector": ".success-message"
+      }
+    ]
+  }
+}
