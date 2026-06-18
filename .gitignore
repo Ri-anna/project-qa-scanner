@@ -6,3 +6,7 @@ dist/
 *.log
 coverage/
 qa-report/
+
+# macOS metadata — exclude everywhere in the tree
+.DS_Store
+**/.DS_Store
