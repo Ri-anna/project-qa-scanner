@@ -59,8 +59,8 @@ program
 
     if (opts.l1 !== false) levels.push(['L1 — Code & Repository', () => runL1(config, targetDir)]);
     if (opts.l2 !== false) levels.push(['L2 — Security',          () => runL2(config, targetDir, serviceStatus)]);
-    if (opts.l3 !== false) levels.push(['L3 — API / Backend',     () => runL3(config, serviceStatus)]);
-    if (opts.l4 !== false) levels.push(['L4 — UI / Browser',      () => runL4(config, serviceStatus)]);
+    if (opts.l3 !== false) levels.push(['L3 — API / Backend',     () => runL3(config, targetDir, serviceStatus)]);
+    if (opts.l4 !== false) levels.push(['L4 — UI / Browser',      () => runL4(config, targetDir, serviceStatus)]);
 
     for (const [label, runner] of levels) {
       console.log(chalk.bold(`Running ${label}…`));
