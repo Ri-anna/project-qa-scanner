@@ -10,3 +10,6 @@ qa-report/
 # macOS metadata — exclude everywhere in the tree
 .DS_Store
 **/.DS_Store
+
+# LibreOffice / office suite lock files
+.~lock.*
