@@ -23,8 +23,8 @@ A TypeScript CLI that scans a project and produces a structured quality report a
 
 ```bash
 # Clone and install
-git clone <repo-url>
-cd qa-scanner
+git clone [<repo-url>](https://github.com/Ri-anna/project-qa-scanner.git)
+cd project-qa-scanner
 npm install
 npx playwright install chromium   # only needed for L4 browser checks
 
